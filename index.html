@@ -6,6 +6,11 @@
     <title>WeatherApp</title>
   </head>
   <body>
+    <form id="weather-search">
+      <input type="search" placeholder="Search for a location ..." autofocus />
+      <input type="submit" value="Get the weather!" />
+    </form>
+
     <script>
       async function getWeather(location) {
         // TODO: add error-catching!
@@ -32,7 +37,18 @@
         };
       }
 
-      createWeatherObject("Vienna").then((obj) => console.log(obj));
+      async function displayWeather(e) {
+        e.preventDefault(); // prevent form from reloading the page
+        const location = e.target.querySelector("input[type='search']").value;
+
+        const weatherObject = await createWeatherObject(location);
+        console.log(weatherObject);
+        // populate the DOM! (grab some div or so, delete what was there if anything, create new stuff and put it in. Separate functions for this stuff).
+      }
+
+      const search = document.querySelector("#weather-search");
+
+      search.addEventListener("submit", displayWeather);
     </script>
   </body>
 </html>
