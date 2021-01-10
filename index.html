@@ -6,6 +6,12 @@
     <title>WeatherApp</title>
   </head>
   <body>
-    <script></script>
+    <script>
+      fetch(
+        "https://api.openweathermap.org/data/2.5/weather?q=vienna&appid=04677966a703b0124f576651b3349deb&units=metric"
+      )
+        .then((response) => response.json())
+        .then((data) => console.log(data));
+    </script>
   </body>
 </html>
