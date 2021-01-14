@@ -10,6 +10,7 @@
       <input type="search" placeholder="Search for a location ..." autofocus />
       <input type="submit" value="Get the weather!" />
     </form>
+    <div class="weather-display"></div>
 
     <script>
       async function getWeather(location) {
@@ -44,9 +45,25 @@
         const weatherObject = await createWeatherObject(location);
         console.log(weatherObject);
         // populate the DOM! (grab some div or so, delete what was there if anything, create new stuff and put it in. Separate functions for this stuff).
+        deleteDOM();
+        populateDOM(weatherObject);
+      }
+
+      function deleteDOM() {
+        while (weatherDisplay.childNodes.length > 0) {
+          weatherDisplay.lastChild.remove();
+        }
+      }
+
+      function populateDOM(weatherData) {
+        const temperature = document.createElement("p");
+        temperature.textContent = `${weatherData.temperature}° C`;
+
+        weatherDisplay.appendChild(temperature);
       }
 
       const search = document.querySelector("#weather-search");
+      const weatherDisplay = document.querySelector(".weather-display");
 
       search.addEventListener("submit", displayWeather);
     </script>
