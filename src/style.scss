@@ -3,6 +3,7 @@
 */
 
 @use "base";
+@use "sass:color";
 
 /*
     Variables: overwrite the ones you want to change. In the comments you find the defaults
@@ -16,8 +17,12 @@ $font-sans-serif: base.$font-sans-serif; // 100% 'Segoe UI', Tahoma, Geneva, Ver
 $dark: base.$dark; // rgb(31, 31, 31)
 $light: base.$light; // rgb(255, 255, 255)
 
-$primary-color: base.$primary-color; // rgb(175, 0, 0)
-$secondary-color: base.$secondary-color; // rgb(0, 70, 0)
+$primary-color: rgb(245, 142, 58);
+$secondary-color: color.adjust(
+  $primary-color,
+  $saturation: -20%,
+  $lightness: 25%
+);
 
 $text-primary: base.$text-primary; // same as $dark
 $text-secondary: base.$text-secondary; // rgb(82,82,82)
@@ -49,11 +54,58 @@ $input-default;
 /*
     Your code starts here
 */
+h1 {
+  padding: 1rem 1.5rem;
+  color: $primary-color;
+  background-color: $bg-primary-dark;
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.big {
+  font-size: 5rem;
+  font-weight: 600;
+}
+
+.temp-unit {
+  font-size: 0.3em;
+  vertical-align: text-top;
+}
+
 .weather-test {
   margin: 20px auto 0;
-  padding: 20px;
   max-width: 500px;
   border: 1px solid black;
+}
+
+.container {
+  background-image: linear-gradient($secondary-color, $primary-color);
+}
+
+.weather-test main,
+.weather-test header {
+  padding: 1rem 1.5rem;
+}
+
+.weather-test main {
+  padding-top: 0;
+}
+
+.weather-descr {
+  color: $text-secondary;
+  text-transform: capitalize;
+}
+
+.weather-location {
+  text-transform: uppercase;
+  font-size: 1.375rem;
+  font-weight: 700;
+}
+
+.text-secondary {
+  color: $text-secondary;
+  font-size: 0.9em;
 }
 
 .weather-test header img {
@@ -65,4 +117,22 @@ $input-default;
   content: "";
   height: 0;
   clear: right;
+}
+
+.weather-test footer {
+  padding: 0.5rem 1.5rem 1.5rem;
+  background-color: $bg-primary-dark;
+  color: $text-primary-light;
+}
+
+.weather-test footer > * {
+  text-align: center;
+}
+
+.weather-test footer .text-secondary {
+  margin-top: 1.25em;
+  margin-bottom: 0.15em;
+  font-size: 0.8em;
+  color: $text-secondary-light;
+  text-transform: uppercase;
 }

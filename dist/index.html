@@ -26,49 +26,51 @@
           <input type="submit" value="S" />
         </form>
       </div>
-      <header>
-        <img src="" alt="country flag" width="50" height="50" />
-        <p>scattered clouds</p>
-        <p>Vienna, AT</p>
-      </header>
-      <main class="grid-container">
-        <div class="col-6">
-          <p>20° C</p>
-          <p>min: 17° C</p>
-          <p>max: 22° C</p>
-        </div>
-        <div class="col-6">
-          <img src="" alt="weather icon" width="50" height="50" />
-          <input type="range" min="0" max="1" />
-          <!--better replace this with something like this: https://www.w3schools.com/howto/howto_css_switch.asp-->
-        </div>
-      </main>
+      <div class="container">
+        <header>
+          <img src="" alt="country flag" width="50" height="50" />
+          <p class="weather-descr">scattered clouds</p>
+          <p class="weather-location">Vienna, AT</p>
+        </header>
+        <main class="grid-container">
+          <div class="col-6">
+            <p class="big">20<span class="temp-unit">° C</span></p>
+            <p class="text-secondary">min: 17° C</p>
+            <p class="text-secondary">max: 22° C</p>
+          </div>
+          <div class="col-6">
+            <img src="" alt="weather icon" width="50" height="50" />
+            <input type="range" min="0" max="1" />
+            <!--better replace this with something like this: https://www.w3schools.com/howto/howto_css_switch.asp-->
+          </div>
+        </main>
+      </div>
       <footer class="grid-container">
         <div class="col-6">
           <div>
-            <p>Feels like:</p>
+            <p class="text-secondary">Feels like:</p>
             <p>25° C</p>
           </div>
           <div>
-            <p>Humidity:</p>
+            <p class="text-secondary">Humidity:</p>
             <p>29%</p>
           </div>
           <div>
-            <p>Wind:</p>
+            <p class="text-secondary">Wind:</p>
             <p>5 km/h</p>
           </div>
         </div>
         <div class="col-6">
           <div>
-            <p>sunrise</p>
+            <p class="text-secondary">sunrise</p>
             <p>7:40</p>
           </div>
           <div>
-            <p>sunset</p>
+            <p class="text-secondary">sunset</p>
             <p>16:50</p>
           </div>
           <div>
-            <p>local time</p>
+            <p class="text-secondary">local time</p>
             <p>12:30</p>
           </div>
         </div>
