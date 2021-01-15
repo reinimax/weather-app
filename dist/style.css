@@ -506,7 +506,7 @@ h1 {
 }
 
 .big {
-  font-size: 5rem;
+  font-size: 4rem;
   font-weight: 600;
 }
 
@@ -515,7 +515,7 @@ h1 {
   vertical-align: text-top;
 }
 
-.weather-test {
+.weather {
   margin: 20px auto 0;
   max-width: 500px;
   border: 1px solid black;
@@ -525,12 +525,12 @@ h1 {
   background-image: linear-gradient(#f3d4bb, #f58e3a);
 }
 
-.weather-test main,
-.weather-test header {
+.weather main,
+.weather header {
   padding: 1rem 1.5rem;
 }
 
-.weather-test main {
+.weather main {
   padding-top: 0;
 }
 
@@ -550,28 +550,28 @@ h1 {
   font-size: 0.9em;
 }
 
-.weather-test header img {
+.weather header img {
   float: right;
 }
 
-.weather-test header:after {
+.weather header:after {
   display: block;
   content: "";
   height: 0;
   clear: right;
 }
 
-.weather-test footer {
+.weather footer {
   padding: 0.5rem 1.5rem 1.5rem;
   background-color: #1f1f1f;
   color: white;
 }
 
-.weather-test footer > * {
+.weather footer > * {
   text-align: center;
 }
 
-.weather-test footer .text-secondary {
+.weather footer .text-secondary {
   margin-top: 1.25em;
   margin-bottom: 0.15em;
   font-size: 0.8em;
