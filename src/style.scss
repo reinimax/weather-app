@@ -1,0 +1,51 @@
+/*
+    This document contains styles specific to the current webpage.
+*/
+
+@use "base";
+
+/*
+    Variables: overwrite the ones you want to change. In the comments you find the defaults
+*/
+
+/* Typography */
+$font-serif: base.$font-serif; // 100% Georgia, 'Times New Roman', Times, serif
+$font-sans-serif: base.$font-sans-serif; // 100% 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+
+/* Colors */
+$dark: base.$dark; // rgb(31, 31, 31)
+$light: base.$light; // rgb(255, 255, 255)
+
+$primary-color: base.$primary-color; // rgb(175, 0, 0)
+$secondary-color: base.$secondary-color; // rgb(0, 70, 0)
+
+$text-primary: base.$text-primary; // same as $dark
+$text-secondary: base.$text-secondary; // rgb(82,82,82)
+$text-primary-light: base.$text-primary-light; // same as $light
+$text-secondary-light: base.$text-secondary-light; // rgba(255, 255, 255, 0.7)
+$link-default: base.$link-default; // rgb(0, 0, 238)
+$link-hover: base.$link-hover; // rgb(0, 0, 238)
+$link-active: base.$link-active; // rgb(238, 0, 0)
+$link-visited: base.$link-visited; // rgb(128, 0, 128)
+
+$bg-primary-light: base.$bg-primary-light; // same as $light
+$bg-primary-dark: base.$bg-primary-dark; // same as $dark
+
+$aspect-ratio: base.$aspect-ratio; // 56.25%
+
+/* Variables that cannot be changed here. Prefix them like this: base.<variablename>
+
+$primary-color-light;
+$primary-color-dark;
+$secondary-color-light;
+$secondary-color-dark;
+$complementary-color;
+$complementary-light;
+$complementary-dark;
+
+$input-default;
+*/
+
+/*
+    Your code starts here
+*/
