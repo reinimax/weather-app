@@ -49,3 +49,20 @@ $input-default;
 /*
     Your code starts here
 */
+.weather-test {
+  margin: 20px auto 0;
+  padding: 20px;
+  max-width: 500px;
+  border: 1px solid black;
+}
+
+.weather-test header img {
+  float: right;
+}
+
+.weather-test header:after {
+  display: block;
+  content: "";
+  height: 0;
+  clear: right;
+}

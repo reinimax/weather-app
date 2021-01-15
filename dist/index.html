@@ -23,26 +23,28 @@
             placeholder="Search for a location ..."
             autofocus
           />
-          <input type="submit" value="Get the weather!" />
+          <input type="submit" value="S" />
         </form>
       </div>
       <header>
+        <img src="" alt="country flag" width="50" height="50" />
         <p>scattered clouds</p>
         <p>Vienna, AT</p>
-        <img src="" alt="country flag" width="50" height="50" />
       </header>
-      <main>
-        <div>
+      <main class="grid-container">
+        <div class="col-6">
           <p>20° C</p>
           <p>min: 17° C</p>
           <p>max: 22° C</p>
         </div>
-        <img src="" alt="weather icon" width="50" height="50" />
-        <input type="range" min="0" max="1" />
-        <!--better replace this with something like this: https://www.w3schools.com/howto/howto_css_switch.asp-->
+        <div class="col-6">
+          <img src="" alt="weather icon" width="50" height="50" />
+          <input type="range" min="0" max="1" />
+          <!--better replace this with something like this: https://www.w3schools.com/howto/howto_css_switch.asp-->
+        </div>
       </main>
-      <footer>
-        <div>
+      <footer class="grid-container">
+        <div class="col-6">
           <div>
             <p>Feels like:</p>
             <p>25° C</p>
@@ -56,7 +58,7 @@
             <p>5 km/h</p>
           </div>
         </div>
-        <div>
+        <div class="col-6">
           <div>
             <p>sunrise</p>
             <p>7:40</p>
