@@ -7,16 +7,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <form id="weather-search">
-      <input type="search" placeholder="Search for a location ..." autofocus />
-      <input type="submit" value="Get the weather!" />
-    </form>
-    <div class="weather-display"></div>
-
-    <div class="weather-test">
+    <div class="weather">
       <div class="search">
         <h1>The weather in ...</h1>
-        <form id="weather-search-test">
+        <form id="weather-search">
           <img src="" alt="geolocation icon" width="50" height="50" />
           <input
             type="search"
@@ -26,55 +20,57 @@
           <input type="submit" value="S" />
         </form>
       </div>
-      <div class="container">
-        <header>
-          <img src="" alt="country flag" width="50" height="50" />
-          <p class="weather-descr">scattered clouds</p>
-          <p class="weather-location">Vienna, AT</p>
-        </header>
-        <main class="grid-container">
+      <div class="weather-display">
+        <div class="container">
+          <header>
+            <img src="" alt="country flag" width="50" height="50" />
+            <p class="weather-descr">scattered clouds</p>
+            <p class="weather-location">Vienna, AT</p>
+          </header>
+          <main class="grid-container">
+            <div class="col-6">
+              <p class="big">20<span class="temp-unit">° C</span></p>
+              <p class="text-secondary">min: 17° C</p>
+              <p class="text-secondary">max: 22° C</p>
+            </div>
+            <div class="col-6">
+              <img src="" alt="weather icon" width="50" height="50" />
+              <input type="range" min="0" max="1" />
+              <!--better replace this with something like this: https://www.w3schools.com/howto/howto_css_switch.asp-->
+            </div>
+          </main>
+        </div>
+        <footer class="grid-container">
           <div class="col-6">
-            <p class="big">20<span class="temp-unit">° C</span></p>
-            <p class="text-secondary">min: 17° C</p>
-            <p class="text-secondary">max: 22° C</p>
+            <div>
+              <p class="text-secondary">Feels like:</p>
+              <p>25° C</p>
+            </div>
+            <div>
+              <p class="text-secondary">Humidity:</p>
+              <p>29%</p>
+            </div>
+            <div>
+              <p class="text-secondary">Wind:</p>
+              <p>5 km/h</p>
+            </div>
           </div>
           <div class="col-6">
-            <img src="" alt="weather icon" width="50" height="50" />
-            <input type="range" min="0" max="1" />
-            <!--better replace this with something like this: https://www.w3schools.com/howto/howto_css_switch.asp-->
+            <div>
+              <p class="text-secondary">sunrise</p>
+              <p>7:40</p>
+            </div>
+            <div>
+              <p class="text-secondary">sunset</p>
+              <p>16:50</p>
+            </div>
+            <div>
+              <p class="text-secondary">local time</p>
+              <p>12:30</p>
+            </div>
           </div>
-        </main>
+        </footer>
       </div>
-      <footer class="grid-container">
-        <div class="col-6">
-          <div>
-            <p class="text-secondary">Feels like:</p>
-            <p>25° C</p>
-          </div>
-          <div>
-            <p class="text-secondary">Humidity:</p>
-            <p>29%</p>
-          </div>
-          <div>
-            <p class="text-secondary">Wind:</p>
-            <p>5 km/h</p>
-          </div>
-        </div>
-        <div class="col-6">
-          <div>
-            <p class="text-secondary">sunrise</p>
-            <p>7:40</p>
-          </div>
-          <div>
-            <p class="text-secondary">sunset</p>
-            <p>16:50</p>
-          </div>
-          <div>
-            <p class="text-secondary">local time</p>
-            <p>12:30</p>
-          </div>
-        </div>
-      </footer>
     </div>
 
     <script src="main.js"></script>
