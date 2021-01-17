@@ -516,7 +516,7 @@ h1 {
 }
 
 .weather {
-  margin: 20px auto 0;
+  margin: 20px auto;
   max-width: 500px;
   border: 1px solid black;
 }
@@ -577,6 +577,31 @@ h1 {
   font-size: 0.8em;
   color: rgba(255, 255, 255, 0.7);
   text-transform: uppercase;
+}
+
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 5rem;
+  background-color: #1f1f1f;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  line-height: 1.5;
+}
+
+.site-footer a {
+  color: #f58e3a;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.site-footer a:visited {
+  color: #b66a2d;
 }
 
 /*# sourceMappingURL=style.css.map */

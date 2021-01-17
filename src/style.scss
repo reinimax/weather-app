@@ -74,7 +74,7 @@ h1 {
 }
 
 .weather {
-  margin: 20px auto 0;
+  margin: 20px auto;
   max-width: 500px;
   border: 1px solid black;
 }
@@ -135,4 +135,29 @@ h1 {
   font-size: 0.8em;
   color: $text-secondary-light;
   text-transform: uppercase;
+}
+
+.site-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.5rem 5rem;
+  background-color: $bg-primary-dark;
+  color: $text-secondary-light;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.site-footer a {
+  color: $primary-color;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.site-footer a:visited {
+  color: color.adjust($primary-color, $saturation: -30%, $lightness: -15%);
 }
