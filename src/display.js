@@ -9,8 +9,8 @@ function populateHeader(weatherData) {
 
   const flag = document.createElement("img");
   //TODO: dynamically change src and alt
-  flag.src = ``;
-  flag.setAttribute("alt", `flag`);
+  flag.src = `https://www.countryflags.io/${weatherData.country.toLowerCase()}/shiny/64.png`;
+  flag.setAttribute("alt", weatherData.country);
 
   const weatherDescr = document.createElement("p");
   weatherDescr.classList.add("weather-descr");
