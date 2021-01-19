@@ -58,13 +58,13 @@ h1 {
   padding: 1rem 1.5rem;
   color: $primary-color;
   background-color: $bg-primary-dark;
-  font-size: 1.25rem;
+  font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
 }
 
 .big {
-  font-size: 4rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
@@ -74,7 +74,7 @@ h1 {
 }
 
 .weather {
-  margin: 20px auto 180px;
+  margin: 0 auto;
   max-width: 500px;
   border: 1px solid black;
 }
@@ -98,6 +98,7 @@ h1 {
 
 #weather-search input[type="search"] {
   flex-grow: 1;
+  min-width: 100px;
 }
 
 #weather-search button[type="submit"] {
@@ -135,7 +136,7 @@ h1 {
 
 .weather-location {
   text-transform: uppercase;
-  font-size: 1.375rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
@@ -174,10 +175,6 @@ h1 {
 }
 
 .site-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
   padding: 1.5rem 3rem;
   background-color: $bg-primary-dark;
   color: $text-secondary-light;
@@ -196,4 +193,35 @@ h1 {
 
 .site-footer a:visited {
   color: color.adjust($primary-color, $saturation: -30%, $lightness: -15%);
+}
+
+@media (min-width: 450px) {
+  .weather {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+  }
+
+  .big {
+    font-size: 4rem;
+  }
+
+  .weather-location {
+    font-size: 1.375rem;
+  }
+}
+
+@media (min-width: 450px) and (min-height: 672px) {
+  .weather {
+    margin-bottom: 120px;
+  }
+  .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 }
