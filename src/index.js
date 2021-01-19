@@ -19,22 +19,37 @@ async function createWeatherObject(location) {
   function getTime(secs) {
     // openweathermap returns seconds, so they are multiplied with 1000 to get the milliseconds required to construct the correct date
     const date = new Date(secs * 1000);
-    const hours = date.getHours();
-    const minutes = date.getMinutes();
+    const hours =
+      date.getHours().toString().length < 2
+        ? "0" + date.getHours().toString()
+        : date.getHours().toString();
+
+    const minutes =
+      date.getMinutes().toString().length < 2
+        ? "0" + date.getMinutes().toString()
+        : date.getMinutes().toString();
+
     return `${hours}:${minutes}`;
   }
 
   function localTime(offset) {
     const date = new Date();
     let hours = date.getUTCHours();
-    const minutes = date.getUTCMinutes();
-
     const hourOffset = (offset / 3600).toFixed(0);
     hours += Number(hourOffset);
     if (hours >= 24) hours -= 24;
 
+    hours =
+      hours.toString().length < 2 ? "0" + hours.toString() : hours.toString();
+
+    const minutes =
+      date.getUTCMinutes().toString().length < 2
+        ? "0" + date.getUTCMinutes().toString()
+        : date.getUTCMinutes().toString();
+
     return `${hours}:${minutes}`;
   }
+
   return {
     location: data.name,
     country: data.sys.country,
