@@ -496,6 +496,10 @@ $input-default;
 /*
     Your code starts here
 */
+body {
+  background-color: #1f1f1f;
+}
+
 h1 {
   padding: 1rem 1.5rem;
   color: #f58e3a;
@@ -519,6 +523,7 @@ h1 {
   margin: 0 auto;
   max-width: 500px;
   border: 1px solid black;
+  background-color: white;
 }
 
 #weather-search {
@@ -639,10 +644,29 @@ h1 {
   color: #b66a2d;
 }
 
-@media (min-width: 450px) {
+@media (min-width: 300px) and (min-height: 740px) {
+  body {
+    background-color: whitesmoke;
+  }
+
   .weather {
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 168px;
+  }
+
+  .site-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+@media (min-width: 450px) {
+  body {
+    background-color: whitesmoke;
+  }
+
+  .weather {
+    margin-bottom: 40px;
   }
 
   h1 {
@@ -657,7 +681,7 @@ h1 {
     font-size: 1.375rem;
   }
 }
-@media (min-width: 450px) and (min-height: 672px) {
+@media (min-width: 450px) and (min-height: 400px) {
   .weather {
     margin-bottom: 120px;
   }
