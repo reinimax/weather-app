@@ -118,6 +118,12 @@ h1 {
     6px 6px 15px rgba(26, 10, 10, 0.5) inset;
 }
 
+.error-info {
+  padding: 0.5em 1em;
+  color: rgb(199, 12, 12);
+  font-weight: 700;
+}
+
 .container {
   background-image: linear-gradient($secondary-color, $primary-color);
 }

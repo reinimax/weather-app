@@ -559,6 +559,12 @@ h1 {
   box-shadow: 2px 2px 10px #27374e, 6px 6px 15px rgba(26, 10, 10, 0.5) inset;
 }
 
+.error-info {
+  padding: 0.5em 1em;
+  color: #c70c0c;
+  font-weight: 700;
+}
+
 .container {
   background-image: linear-gradient(#f3d4bb, #f58e3a);
 }
