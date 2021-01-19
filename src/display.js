@@ -7,10 +7,7 @@ function deleteDOM() {
 function populateHeader(weatherData) {
   const header = document.createElement("header");
 
-  const flag = document.createElement("img");
-  //TODO: dynamically change src and alt
-  flag.src = `https://www.countryflags.io/${weatherData.country.toLowerCase()}/shiny/64.png`;
-  flag.setAttribute("alt", weatherData.country);
+  const div = document.createElement("div");
 
   const weatherDescr = document.createElement("p");
   weatherDescr.classList.add("weather-descr");
@@ -20,9 +17,15 @@ function populateHeader(weatherData) {
   location.classList.add("weather-location");
   location.textContent = `${weatherData.location}, ${weatherData.country}`;
 
+  div.appendChild(weatherDescr);
+  div.appendChild(location);
+
+  const flag = document.createElement("img");
+  flag.src = `https://www.countryflags.io/${weatherData.country.toLowerCase()}/shiny/64.png`;
+  flag.setAttribute("alt", weatherData.country);
+
+  header.appendChild(div);
   header.appendChild(flag);
-  header.appendChild(weatherDescr);
-  header.appendChild(location);
 
   return header;
 }
@@ -90,38 +93,6 @@ function populateContainer(weatherData) {
 }
 
 function populateFooter(weatherData) {
-  /*
-<footer class="grid-container">
-          <div class="col-6">
-            <div>
-              <p class="text-secondary">Feels like:</p>
-              <p>25° C</p>
-            </div>
-            <div>
-              <p class="text-secondary">Humidity:</p>
-              <p>29%</p>
-            </div>
-            <div>
-              <p class="text-secondary">Wind:</p>
-              <p>5 km/h</p>
-            </div>
-          </div>
-          <div class="col-6">
-            <div>
-              <p class="text-secondary">sunrise</p>
-              <p>7:40</p>
-            </div>
-            <div>
-              <p class="text-secondary">sunset</p>
-              <p>16:50</p>
-            </div>
-            <div>
-              <p class="text-secondary">local time</p>
-              <p>12:30</p>
-            </div>
-          </div>
-        </footer>
-    */
   const footer = document.createElement("footer");
   footer.classList.add("grid-container");
 

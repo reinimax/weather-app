@@ -147,15 +147,10 @@ h1 {
   font-size: 0.9em;
 }
 
-.weather header img {
-  float: right;
-}
-
-.weather header:after {
-  display: block;
-  content: "";
-  height: 0;
-  clear: right;
+.weather header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .weather footer {
