@@ -521,6 +521,41 @@ h1 {
   border: 1px solid black;
 }
 
+#weather-search {
+  display: flex;
+  align-items: center;
+}
+
+#weather-search > i {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  color: #ac1e1e;
+  text-shadow: 1px 1px 2px #631616;
+  cursor: pointer;
+}
+
+#weather-search > i:hover {
+  text-shadow: 1px 1px 2px #631616, 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+#weather-search input[type=search] {
+  flex-grow: 1;
+}
+
+#weather-search button[type=submit] {
+  padding: 0.75rem 0.9rem;
+  border-radius: 50%;
+  border: none;
+  background-image: linear-gradient(#f72d2d, #631616);
+  color: white;
+  font-size: 1.15rem;
+  box-shadow: 2px 2px 10px #27374e;
+}
+
+#weather-search button[type=submit]:hover {
+  box-shadow: 2px 2px 10px #27374e, 6px 6px 15px rgba(26, 10, 10, 0.5) inset;
+}
+
 .container {
   background-image: linear-gradient(#f3d4bb, #f58e3a);
 }
