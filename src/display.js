@@ -70,8 +70,41 @@ function populateMain(weatherData) {
   icon.setAttribute("alt", `${weatherData.weather}`);
 
   // add in a Slider to change from Celsius to Fahrenheit
+  /*
+<div class="temperature">
+                <input type="checkbox" id="unit" />
+                <label for="unit" class="toggler">
+                  <span id="toggle-btn"></span>
+                </label>
+                <span class="unit-display">°C</span>
+              </div>
+  */
+  const tempSwitch = document.createElement("div");
+  tempSwitch.classList.add("temperature");
+
+  const checkbox = document.createElement("input");
+  checkbox.setAttribute("type", "checkbox");
+  checkbox.setAttribute("id", "unit");
+
+  const label = document.createElement("label");
+  label.setAttribute("for", "unit");
+  label.classList.add("toggler");
+
+  const span = document.createElement("span");
+  span.setAttribute("id", "toggle-btn");
+
+  label.appendChild(span);
+
+  const units = document.createElement("span");
+  units.classList.add("unit-display");
+  units.textContent = "°C";
+
+  tempSwitch.appendChild(checkbox);
+  tempSwitch.appendChild(label);
+  tempSwitch.appendChild(units);
 
   col2.appendChild(icon);
+  col2.appendChild(tempSwitch);
 
   main.appendChild(col1);
   main.appendChild(col2);
