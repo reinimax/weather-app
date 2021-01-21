@@ -31,7 +31,7 @@
         <p class="error-info"></p>
       </div>
       <div class="weather-display">
-        <!--this will be dynamically generated
+        <!--From here on everything will be generated dynamically-->
         <div class="container">
           <header>
             <div>
@@ -53,8 +53,12 @@
             </div>
             <div class="col-6">
               <img src="" alt="weather icon" width="50" height="50" />
-              <input type="range" min="0" max="1" />
-              COMMENT better replace this with something like this: https://www.w3schools.com/howto/howto_css_switch.asp
+              <!--TOGGLER-->
+              <input type="checkbox" id="unit" />
+              <label for="unit" class="toggler">
+                <span id="toggle-btn"></span>
+              </label>
+              <!--END TOGGLER-->
             </div>
           </main>
         </div>
@@ -88,7 +92,7 @@
             </div>
           </div>
         </footer>
-        -->
+        <!---->
       </div>
     </div>
 

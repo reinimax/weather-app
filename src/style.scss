@@ -164,6 +164,46 @@ h1 {
   align-items: center;
 }
 
+/* 
+  Celsius/Fahrenheit Toggler
+*/
+.toggler {
+  position: relative;
+  display: block;
+  width: 60px;
+  height: 30px;
+  background-color: $bg-primary-dark;
+  border-radius: 100px;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+#unit {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+
+#toggle-btn {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 24px;
+  height: 24px;
+  background-color: $primary-color;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) inset,
+    -1px -1px 2px rgba(0, 0, 0, 0.5) inset;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+
+#unit:checked + .toggler > #toggle-btn {
+  background-color: rgba(255, 255, 255, 0.8);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) inset,
+    -1px -1px 2px rgba(0, 0, 0, 0.5) inset;
+  transform: translateX(30px);
+}
+
 .weather footer {
   padding: 0.5rem 1.5rem 1.5rem;
   background-color: $bg-primary-dark;
