@@ -180,6 +180,15 @@ function populateDOM(weatherData) {
   weatherDisplay.appendChild(footer);
 }
 
-const weatherDisplay = document.querySelector(".weather-display");
+function writeError(message) {
+  errorInfo.textContent = message;
+}
 
-export { deleteDOM, populateDOM };
+function resetErrorMsg() {
+  errorInfo.textContent = "";
+}
+
+const weatherDisplay = document.querySelector(".weather-display");
+const errorInfo = document.querySelector(".error-info");
+
+export { deleteDOM, populateDOM, writeError, resetErrorMsg };

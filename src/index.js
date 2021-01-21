@@ -1,5 +1,4 @@
 import * as display from "./display";
-const errorInfo = document.querySelector(".error-info");
 
 async function getWeather(location) {
   try {
@@ -9,16 +8,16 @@ async function getWeather(location) {
 
     // extra handling of 404, since this will be the most common one
     if (response.status === 404) {
-      errorInfo.textContent = "Couldn't find this place...";
+      display.writeError("Couldn't find this place...");
     } else if (!response.ok) {
-      errorInfo.textContent = "Something went wrong";
+      display.writeError("Something went wrong");
     } else {
       const weather = await response.json();
       return weather;
     }
   } catch (err) {
     // the catch block activates only on network error, NOT when a response with an error-code is received. These cases have to be handled above in the try-block.
-    errorInfo.textContent = err.message;
+    display.writeError(err.message);
   }
 }
 
@@ -91,7 +90,7 @@ async function displayWeather(e) {
     display.populateDOM(weatherObject);
 
     //reset error-message
-    errorInfo.textContent = "";
+    display.resetErrorMsg();
   } catch (err) {}
 }
 
