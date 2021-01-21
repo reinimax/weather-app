@@ -44,17 +44,17 @@ function populateMain(weatherData) {
 
   const unit = document.createElement("span");
   unit.classList.add("temp-unit");
-  unit.textContent = "° C";
+  unit.textContent = " °C";
 
   temperature.appendChild(unit);
 
   const tempMin = document.createElement("p");
   tempMin.classList.add("text-secondary");
-  tempMin.textContent = `min: ${weatherData.tempMin}° C`;
+  tempMin.textContent = `min: ${weatherData.tempMin} °C`;
 
   const tempMax = document.createElement("p");
   tempMax.classList.add("text-secondary");
-  tempMax.textContent = `max: ${weatherData.tempMax}° C`;
+  tempMax.textContent = `max: ${weatherData.tempMax} °C`;
 
   col1.appendChild(temperature);
   col1.appendChild(tempMin);
@@ -105,7 +105,7 @@ function populateFooter(weatherData) {
   feelingDescr.classList.add("text-secondary");
   feelingDescr.textContent = "Feels like";
   const feelingData = document.createElement("p");
-  feelingData.textContent = `${weatherData.feelsLike}° C`;
+  feelingData.textContent = `${weatherData.feelsLike} °C`;
   feeling.appendChild(feelingDescr);
   feeling.appendChild(feelingData);
 
