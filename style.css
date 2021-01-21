@@ -581,6 +581,11 @@ h1 {
 
 .weather main {
   padding-top: 0;
+  display: flex;
+}
+
+.second-col {
+  padding-left: 1rem;
 }
 
 .weather-descr {
