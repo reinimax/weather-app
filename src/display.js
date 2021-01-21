@@ -36,7 +36,6 @@ function populateMain(weatherData) {
 
   // First column
   const col1 = document.createElement("div");
-  col1.classList.add("col-6");
 
   const temperature = document.createElement("p");
   temperature.classList.add("big");
@@ -56,29 +55,6 @@ function populateMain(weatherData) {
   tempMax.classList.add("text-secondary");
   tempMax.textContent = `max: ${weatherData.tempMax} °C`;
 
-  col1.appendChild(temperature);
-  col1.appendChild(tempMin);
-  col1.appendChild(tempMax);
-
-  // Second column
-  const col2 = document.createElement("div");
-  col2.classList.add("col-6");
-
-  // icons see: https://openweathermap.org/weather-conditions#How-to-get-icon-URL
-  const icon = document.createElement("img");
-  icon.src = `http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`;
-  icon.setAttribute("alt", `${weatherData.weather}`);
-
-  // add in a Slider to change from Celsius to Fahrenheit
-  /*
-<div class="temperature">
-                <input type="checkbox" id="unit" />
-                <label for="unit" class="toggler">
-                  <span id="toggle-btn"></span>
-                </label>
-                <span class="unit-display">°C</span>
-              </div>
-  */
   const tempSwitch = document.createElement("div");
   tempSwitch.classList.add("temperature");
 
@@ -103,8 +79,21 @@ function populateMain(weatherData) {
   tempSwitch.appendChild(label);
   tempSwitch.appendChild(units);
 
+  col1.appendChild(temperature);
+  col1.appendChild(tempMin);
+  col1.appendChild(tempMax);
+  col1.appendChild(tempSwitch);
+
+  // Second column
+  const col2 = document.createElement("div");
+  col2.classList.add("second-col");
+
+  // icons see: https://openweathermap.org/weather-conditions#How-to-get-icon-URL
+  const icon = document.createElement("img");
+  icon.src = `http://openweathermap.org/img/wn/${weatherData.icon}@2x.png`;
+  icon.setAttribute("alt", `${weatherData.weather}`);
+
   col2.appendChild(icon);
-  col2.appendChild(tempSwitch);
 
   main.appendChild(col1);
   main.appendChild(col2);
