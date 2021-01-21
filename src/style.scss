@@ -179,9 +179,7 @@ h1 {
 }
 
 #unit {
-  width: 0;
-  height: 0;
-  opacity: 0;
+  display: none;
 }
 
 #toggle-btn {
@@ -202,6 +200,17 @@ h1 {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5) inset,
     -1px -1px 2px rgba(0, 0, 0, 0.5) inset;
   transform: translateX(30px);
+}
+
+.temperature {
+  display: flex;
+  align-items: center;
+}
+
+.temperature .unit-display {
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  line-height: 1;
 }
 
 .weather footer {
