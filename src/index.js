@@ -95,9 +95,7 @@ const weather = (() => {
     } catch (err) {}
   };
 
-  const test = () => console.log("I work");
-
-  return { displayWeather, test };
+  return { displayWeather };
 })();
 
 const search = document.querySelector("#weather-search");

@@ -1,3 +1,54 @@
+function extractNum(string) {
+  return Number(string.replace(/[^0-9\.]/g, ""));
+}
+
+// This is not elegant. I select the elements that contain temperatures, extract the raw number,
+// convert it to Celsius/Fahrenheit and then put it back into the DOM. There should be a better
+// pattern (maybe I shot myself a bit into the foot because I don't save my weather-object anywhere).
+// Anyway, for now this is working.
+function toggleUnit(e) {
+  const unitDisplay = document.querySelector(".unit-display");
+  const tempBig = document.querySelector("#temp-display-big");
+  const tempUnit = document.createElement("span");
+  tempUnit.classList.add("temp-unit");
+
+  const tempMin = document.querySelector("#temp-min");
+  const tempMax = document.querySelector("#temp-max");
+  const feelsLike = document.querySelector("#feels-like");
+
+  const temperatureMain = extractNum(tempBig.textContent);
+  const temperatureMin = extractNum(tempMin.textContent);
+  const temperatureMax = extractNum(tempMax.textContent);
+  const temperatureFelt = extractNum(feelsLike.textContent);
+
+  if (e.target.checked) {
+    unitDisplay.textContent = "°F";
+    tempBig.textContent = ((temperatureMain * 9) / 5 + 32).toFixed(1);
+    tempUnit.textContent = "°F";
+    tempMin.textContent = `min: ${((temperatureMin * 9) / 5 + 32).toFixed(
+      1
+    )} °F`;
+    tempMax.textContent = `max: ${((temperatureMax * 9) / 5 + 32).toFixed(
+      1
+    )} °F`;
+    feelsLike.textContent = `${((temperatureFelt * 9) / 5 + 32).toFixed(1)} °F`;
+  } else {
+    unitDisplay.textContent = "°C";
+    tempBig.textContent = (((temperatureMain - 32) * 5) / 9).toFixed(1);
+    tempUnit.textContent = "°C";
+    tempMin.textContent = `min: ${(((temperatureMin - 32) * 5) / 9).toFixed(
+      1
+    )} °C`;
+    tempMax.textContent = `max: ${(((temperatureMax - 32) * 5) / 9).toFixed(
+      1
+    )} °C`;
+    feelsLike.textContent = `${(((temperatureFelt - 32) * 5) / 9).toFixed(
+      1
+    )} °C`;
+  }
+  tempBig.appendChild(tempUnit);
+}
+
 function deleteDOM() {
   while (weatherDisplay.childNodes.length > 0) {
     weatherDisplay.lastChild.remove();
@@ -39,6 +90,7 @@ function populateMain(weatherData) {
 
   const temperature = document.createElement("p");
   temperature.classList.add("big");
+  temperature.setAttribute("id", "temp-display-big");
   temperature.textContent = weatherData.temperature;
 
   const unit = document.createElement("span");
@@ -49,10 +101,12 @@ function populateMain(weatherData) {
 
   const tempMin = document.createElement("p");
   tempMin.classList.add("text-secondary");
+  tempMin.setAttribute("id", "temp-min");
   tempMin.textContent = `min: ${weatherData.tempMin} °C`;
 
   const tempMax = document.createElement("p");
   tempMax.classList.add("text-secondary");
+  tempMax.setAttribute("id", "temp-max");
   tempMax.textContent = `max: ${weatherData.tempMax} °C`;
 
   const tempSwitch = document.createElement("div");
@@ -61,6 +115,7 @@ function populateMain(weatherData) {
   const checkbox = document.createElement("input");
   checkbox.setAttribute("type", "checkbox");
   checkbox.setAttribute("id", "unit");
+  checkbox.addEventListener("change", toggleUnit);
 
   const label = document.createElement("label");
   label.setAttribute("for", "unit");
@@ -127,6 +182,7 @@ function populateFooter(weatherData) {
   feelingDescr.classList.add("text-secondary");
   feelingDescr.textContent = "Feels like";
   const feelingData = document.createElement("p");
+  feelingData.setAttribute("id", "feels-like");
   feelingData.textContent = `${weatherData.feelsLike} °C`;
   feeling.appendChild(feelingDescr);
   feeling.appendChild(feelingData);
