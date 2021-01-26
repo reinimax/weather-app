@@ -62,9 +62,13 @@ const weather = (() => {
     try {
       const data = await getWeather(queryString);
 
+      // defaults in case the API returns no city/country
+      const location = data.name !== "" ? data.name : "Your location";
+      const country = data.sys.country ? data.sys.country : "";
+
       return {
-        location: data.name,
-        country: data.sys.country,
+        location: location,
+        country: country,
         temperature: data.main.temp.toFixed(1),
         tempMin: data.main.temp_min.toFixed(1),
         tempMax: data.main.temp_max.toFixed(1),
