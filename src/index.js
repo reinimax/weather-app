@@ -1,10 +1,10 @@
 import * as display from "./display";
 
 const weather = (() => {
-  async function getWeather(location) {
+  async function getWeather(queryString) {
     try {
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=04677966a703b0124f576651b3349deb&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?${queryString}&appid=04677966a703b0124f576651b3349deb&units=metric`
       );
 
       // extra handling of 404, since this will be the most common one
@@ -22,7 +22,7 @@ const weather = (() => {
     }
   }
 
-  async function createWeatherObject(location) {
+  async function createWeatherObject(queryString) {
     // helpers for dates
     function getTime(secs) {
       // openweathermap returns seconds, so they are multiplied with 1000 to get the milliseconds required to construct the correct date
@@ -60,7 +60,7 @@ const weather = (() => {
 
     // create an Object with the relevant data
     try {
-      const data = await getWeather(location);
+      const data = await getWeather(queryString);
 
       return {
         location: data.name,
@@ -83,9 +83,10 @@ const weather = (() => {
   const displayWeather = async function (e) {
     e.preventDefault(); // prevent form from reloading the page
     const location = e.target.querySelector("input[type='search']").value;
+    const queryString = `q=${location}`;
 
     try {
-      const weatherObject = await createWeatherObject(location);
+      const weatherObject = await createWeatherObject(queryString);
 
       display.deleteDOM();
       display.populateDOM(weatherObject);
@@ -95,8 +96,51 @@ const weather = (() => {
     } catch (err) {}
   };
 
-  return { displayWeather };
+  const displayWeatherFromCoords = async function (lat, lon) {
+    const queryString = `lat=${lat}&lon=${lon}`;
+
+    try {
+      const weatherObject = await createWeatherObject(queryString);
+
+      display.deleteDOM();
+      display.populateDOM(weatherObject);
+
+      //reset error-message
+      display.resetErrorMsg();
+    } catch (err) {}
+  };
+
+  return { displayWeather, displayWeatherFromCoords };
 })();
 
-const search = document.querySelector("#weather-search");
-search.addEventListener("submit", weather.displayWeather);
+// Geolocation
+const location = (() => {
+  function getGeoLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        displayLocalWeather,
+        displayError
+      );
+    }
+  }
+
+  function displayLocalWeather(position) {
+    const lat = position.coords.latitude;
+    const lon = position.coords.longitude;
+    weather.displayWeatherFromCoords(lat, lon);
+  }
+
+  function displayError(err) {
+    display.writeError(err.message);
+  }
+
+  return { getGeoLocation };
+})();
+
+document
+  .querySelector("#weather-search")
+  .addEventListener("submit", weather.displayWeather);
+
+document
+  .querySelector("#geolocation")
+  .addEventListener("click", location.getGeoLocation);
