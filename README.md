@@ -1,6 +1,8 @@
 # Weather App
 
-In this project, which I did as part of [The Odin Project](https://www.theodinproject.com) JavaScript curriculum, I practiced working with API's and asynchronous JavaScript.
+In this project, which I did as part of [The Odin Project](https://www.theodinproject.com) JavaScript curriculum, I practiced working with API's and asynchronous JavaScript. It also features geolocation.
+
+![Screenshot](screenshot.png)
 
 ## Reflection
 
@@ -21,4 +23,4 @@ In this project, which I did as part of [The Odin Project](https://www.theodinpr
 
 ## Demo
 
-[View here](https://reinimax.github.io/weather-app/)
+[View it here](https://reinimax.github.io/weather-app/)
